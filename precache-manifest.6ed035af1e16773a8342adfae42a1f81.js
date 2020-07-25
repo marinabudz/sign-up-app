@@ -1,10 +1,10 @@
 self.__precacheManifest = [
   {
-    "revision": "d417707cf6807702de2c",
-    "url": "/sign-up-app/static/css/main.4ae4efda.chunk.css"
+    "revision": "0d2be200f6a87b73b46d",
+    "url": "/sign-up-app/static/css/main.26b07d2a.chunk.css"
   },
   {
-    "revision": "d417707cf6807702de2c",
+    "revision": "0d2be200f6a87b73b46d",
     "url": "/sign-up-app/static/js/main.0f4a67cd.chunk.js"
   },
   {
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/sign-up-app/static/js/2.b74005f8.chunk.js"
   },
   {
-    "revision": "ea276202266b3b13cd4dc5b9ab23d726",
+    "revision": "38a03a60643c21c6c805b7104a7d1ec3",
     "url": "/sign-up-app/index.html"
   }
 ];
