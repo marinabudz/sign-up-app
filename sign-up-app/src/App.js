@@ -16,7 +16,7 @@ export default class App extends Component {
     password: "",
     confirmPassword: "",
     signedUp: false,
-    disabled: false
+    disabled: true
   };
 
   handleInputChange = e => {
