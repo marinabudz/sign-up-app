@@ -1,8 +1,10 @@
 {
-  "user": {
-    "firstName": "",
-    "lastName": "",
-    "email": "",
-    "password": ""
-  }
+  "users": [
+    {
+      "firstName": "",
+      "lastName": "",
+      "email": "",
+      "password": ""
+    }
+  ]
 }
