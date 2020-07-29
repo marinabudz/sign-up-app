@@ -42,19 +42,26 @@ const App = () => {
   };
   const onSubmit = e => {
     e.preventDefault();
+    axios
+      .post(
+        "https://my-json-server.typicode.com/marinabudz/sign-up-app/users",
+        {
+          user
+        }
+      )
+      .then(response => {
+        console.log(response);
+        console.log(response.data);
+      });
     setSignedUp(true);
   };
   useEffect(() => {
-    // const main_URl =
-    //   "https://my-json-server.typicode.com/marinabudz/sign-up-app";
-    // const proxy_URL = "https://cors-anywhere.herokuapp.com/";
-    // const response = axios.get(proxy_URL + main_URl);
-    // console.log(response);
-    fetch("http://my-json-server.typicode.com/marinabudz/sign-up-app/db", {
-      mode: "no-cors" // 'cors' by default
-    })
-      .then(response => response.json())
-      .then(info => console.log(info));
+    async function getData() {
+      const response = await axios
+        .get("https://my-json-server.typicode.com/marinabudz/sign-up-app/users")
+        .then(response => setData(response.data));
+    }
+    getData();
   }, []);
 
   const { firstName, lastName, email, password, confirmPassword } = user;
