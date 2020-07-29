@@ -10,9 +10,11 @@ import {
 } from "./components/validation/validation";
 import Input from "./components/input/input";
 
+let number = 100;
+
 const App = () => {
   const [user, setUser] = useState({
-    id: 1,
+    id: number++,
     firstName: "",
     lastName: "",
     email: "",
@@ -44,10 +46,18 @@ const App = () => {
 
   const onSubmit = e => {
     e.preventDefault();
+
+    const userData = {
+      id: user.id,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      password: user.password
+    };
     axios
       .post(
         "https://my-json-server.typicode.com/marinabudz/sign-up-app/users",
-        user
+        userData
       )
       .then(response => {
         console.log(response);
@@ -64,20 +74,20 @@ const App = () => {
     <ErrorHandler name="password" />
   ) : null;
 
-  const confirmation =
-    confirmPassword !== password ? <ErrorHandler name="confirmation" /> : null;
-  const disabled =
-    error_user ||
-    error_email ||
-    error_password ||
-    confirmation ||
-    !firstName ||
-    !lastName ||
-    !email ||
-    !password ||
-    !confirmPassword
-      ? true
-      : false;
+  // const confirmation =
+  //   confirmPassword !== password ? <ErrorHandler name="confirmation" /> : null;
+  // const disabled =
+  //   error_user ||
+  //   error_email ||
+  //   error_password ||
+  //   confirmation ||
+  //   !firstName ||
+  //   !lastName ||
+  //   !email ||
+  //   !password ||
+  //   !confirmPassword
+  //     ? true
+  //     : false;
 
   if (!signedUp) {
     return (
@@ -91,15 +101,15 @@ const App = () => {
           onChange={handleInputChange}
         />
         {userError}
-        <Input
+        {/* <Input
           name="lastName"
           type="text"
           placeholder="Last Name"
           value={lastName}
           onChange={handleInputChange}
         />
-        {userError}
-        <Input
+        {userError} */}
+        {/* <Input
           name="email"
           type="email"
           placeholder="Email"
@@ -122,11 +132,9 @@ const App = () => {
           value={confirmPassword}
           onChange={handleInputChange}
         />
-        {confirmation}
+        {confirmation} */}
 
-        <button disabled={disabled} type="submit">
-          Submit
-        </button>
+        <button type="submit">Submit</button>
       </form>
     );
   }
