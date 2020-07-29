@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.scss";
 import axios from "axios";
 import Sucess from "./components/sucess/sucess";
@@ -43,6 +43,12 @@ const App = () => {
     e.preventDefault();
     setSignedUp(true);
   };
+  useEffect(() => {
+    const response = axios.get(
+      "https://my-json-server.typicode.com/marinabudz/sign-up-app"
+    );
+    console.log(response);
+  }, []);
 
   const { firstName, lastName, email, password, confirmPassword } = user;
 
