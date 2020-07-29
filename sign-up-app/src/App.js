@@ -54,15 +54,23 @@ const App = () => {
       email: user.email,
       password: user.password
     };
+
     axios
       .post(
         "https://my-json-server.typicode.com/marinabudz/sign-up-app/users",
-        userData
+        userData,
+        {
+          headers: {
+            Accept: "application/json",
+            "Content-type": "application/json"
+          }
+        }
       )
       .then(response => {
         console.log(response);
         console.log(response.data);
-      });
+      })
+      .catch(error => console.log(error));
     setSignedUp(true);
   };
 
@@ -74,20 +82,20 @@ const App = () => {
     <ErrorHandler name="password" />
   ) : null;
 
-  // const confirmation =
-  //   confirmPassword !== password ? <ErrorHandler name="confirmation" /> : null;
-  // const disabled =
-  //   error_user ||
-  //   error_email ||
-  //   error_password ||
-  //   confirmation ||
-  //   !firstName ||
-  //   !lastName ||
-  //   !email ||
-  //   !password ||
-  //   !confirmPassword
-  //     ? true
-  //     : false;
+  const confirmation =
+    confirmPassword !== password ? <ErrorHandler name="confirmation" /> : null;
+  const disabled =
+    error_user ||
+    error_email ||
+    error_password ||
+    confirmation ||
+    !firstName ||
+    !lastName ||
+    !email ||
+    !password ||
+    !confirmPassword
+      ? true
+      : false;
 
   if (!signedUp) {
     return (
@@ -101,15 +109,15 @@ const App = () => {
           onChange={handleInputChange}
         />
         {userError}
-        {/* <Input
+        <Input
           name="lastName"
           type="text"
           placeholder="Last Name"
           value={lastName}
           onChange={handleInputChange}
         />
-        {userError} */}
-        {/* <Input
+        {userError}
+        <Input
           name="email"
           type="email"
           placeholder="Email"
@@ -132,22 +140,14 @@ const App = () => {
           value={confirmPassword}
           onChange={handleInputChange}
         />
-        {confirmation} */}
+        {confirmation}
 
-        <button type="submit">Submit</button>
+        <button disabled={disabled} type="submit">
+          Submit
+        </button>
       </form>
     );
   }
   return <Sucess name={firstName} lastName={lastName} />;
 };
 export default App;
-// useEffect(() => {
-//   async function getData() {
-//     const response = await axios
-//       .get("https://my-json-server.typicode.com/marinabudz/sign-up-app/users")
-//       .then(response => setData(response.data));
-//   }
-//   getData();
-// }, []);
-// console.log(data);
-// disabled={disabled}
