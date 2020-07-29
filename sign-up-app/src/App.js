@@ -12,13 +12,14 @@ import Input from "./components/input/input";
 
 const App = () => {
   const [user, setUser] = useState({
+    id: 1,
     firstName: "",
     lastName: "",
     email: "",
     password: "",
     confirmPassword: ""
   });
-  const [data, setData] = useState([]);
+
   const [signedUp, setSignedUp] = useState(false);
   const [error_user, setError_user] = useState(false);
   const [error_email, setError_email] = useState(false);
@@ -40,14 +41,13 @@ const App = () => {
         : setError_password(true);
     }
   };
+
   const onSubmit = e => {
     e.preventDefault();
     axios
       .post(
         "https://my-json-server.typicode.com/marinabudz/sign-up-app/users",
-        {
-          user
-        }
+        user
       )
       .then(response => {
         console.log(response);
@@ -55,14 +55,6 @@ const App = () => {
       });
     setSignedUp(true);
   };
-  useEffect(() => {
-    async function getData() {
-      const response = await axios
-        .get("https://my-json-server.typicode.com/marinabudz/sign-up-app/users")
-        .then(response => setData(response.data));
-    }
-    getData();
-  }, []);
 
   const { firstName, lastName, email, password, confirmPassword } = user;
 
@@ -141,3 +133,13 @@ const App = () => {
   return <Sucess name={firstName} lastName={lastName} />;
 };
 export default App;
+// useEffect(() => {
+//   async function getData() {
+//     const response = await axios
+//       .get("https://my-json-server.typicode.com/marinabudz/sign-up-app/users")
+//       .then(response => setData(response.data));
+//   }
+//   getData();
+// }, []);
+// console.log(data);
+// disabled={disabled}
