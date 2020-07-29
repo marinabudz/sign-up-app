@@ -18,6 +18,7 @@ const App = () => {
     password: "",
     confirmPassword: ""
   });
+  const [data, setData] = useState([]);
   const [signedUp, setSignedUp] = useState(false);
   const [error_user, setError_user] = useState(false);
   const [error_email, setError_email] = useState(false);
@@ -44,10 +45,16 @@ const App = () => {
     setSignedUp(true);
   };
   useEffect(() => {
-    const response = axios.get(
-      "https://my-json-server.typicode.com/marinabudz/sign-up-app"
-    );
-    console.log(response);
+    // const main_URl =
+    //   "https://my-json-server.typicode.com/marinabudz/sign-up-app";
+    // const proxy_URL = "https://cors-anywhere.herokuapp.com/";
+    // const response = axios.get(proxy_URL + main_URl);
+    // console.log(response);
+    fetch("http://my-json-server.typicode.com/marinabudz/sign-up-app/db", {
+      mode: "no-cors" // 'cors' by default
+    })
+      .then(response => response.json())
+      .then(info => console.log(info));
   }, []);
 
   const { firstName, lastName, email, password, confirmPassword } = user;
