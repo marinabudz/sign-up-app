@@ -6,6 +6,13 @@
       "lastName": "",
       "email": "",
       "password": ""
+    },
+    {
+      "id": 101,
+      "firstName": "marinaBudz1!",
+      "lastName": "marinaBudz1!",
+      "email": "marina@gmail.com",
+      "password": "marinaBudz1!"
     }
   ]
 }

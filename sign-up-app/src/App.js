@@ -56,16 +56,12 @@ const App = () => {
     };
 
     axios
-      .post(
-        "https://my-json-server.typicode.com/marinabudz/sign-up-app/users",
-        userData,
-        {
-          headers: {
-            Accept: "application/json",
-            "Content-type": "application/json"
-          }
+      .post("http://localhost:5000/users", userData, {
+        headers: {
+          Accept: "application/json",
+          "Content-type": "application/json"
         }
-      )
+      })
       .then(response => {
         console.log(response);
         console.log(response.data);
@@ -151,3 +147,4 @@ const App = () => {
   return <Sucess name={firstName} lastName={lastName} />;
 };
 export default App;
+// marinaBudz1!
