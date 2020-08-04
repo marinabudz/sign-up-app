@@ -1,13 +1,13 @@
 {
   "main.css": "/sign-up-app/static/css/main.3ebb18f1.chunk.css",
-  "main.js": "/sign-up-app/static/js/main.27dcb78e.chunk.js",
-  "main.js.map": "/sign-up-app/static/js/main.27dcb78e.chunk.js.map",
+  "main.js": "/sign-up-app/static/js/main.c3d5d4af.chunk.js",
+  "main.js.map": "/sign-up-app/static/js/main.c3d5d4af.chunk.js.map",
   "runtime~main.js": "/sign-up-app/static/js/runtime~main.a310f9af.js",
   "runtime~main.js.map": "/sign-up-app/static/js/runtime~main.a310f9af.js.map",
   "static/js/2.3bfefe24.chunk.js": "/sign-up-app/static/js/2.3bfefe24.chunk.js",
   "static/js/2.3bfefe24.chunk.js.map": "/sign-up-app/static/js/2.3bfefe24.chunk.js.map",
   "index.html": "/sign-up-app/index.html",
-  "precache-manifest.fe64bac6fea0e9da0fdb6bfa474f6bfd.js": "/sign-up-app/precache-manifest.fe64bac6fea0e9da0fdb6bfa474f6bfd.js",
+  "precache-manifest.1e3cdde5dffdff9a44c42c404776751c.js": "/sign-up-app/precache-manifest.1e3cdde5dffdff9a44c42c404776751c.js",
   "service-worker.js": "/sign-up-app/service-worker.js",
   "static/css/main.3ebb18f1.chunk.css.map": "/sign-up-app/static/css/main.3ebb18f1.chunk.css.map"
 }
