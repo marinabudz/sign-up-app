@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.scss";
+import axios from "axios";
 import Sucess from "./components/sucess/sucess";
 import { ErrorHandler } from "./components/error/error";
 import {
@@ -9,14 +10,18 @@ import {
 } from "./components/validation/validation";
 import Input from "./components/input/input";
 
+let number = 100;
+
 const App = () => {
   const [user, setUser] = useState({
+    id: number++,
     firstName: "",
     lastName: "",
     email: "",
     password: "",
     confirmPassword: ""
   });
+
   const [signedUp, setSignedUp] = useState(false);
   const [error_user, setError_user] = useState(false);
   const [error_email, setError_email] = useState(false);
@@ -38,8 +43,30 @@ const App = () => {
         : setError_password(true);
     }
   };
+
   const onSubmit = e => {
     e.preventDefault();
+
+    const userData = {
+      id: user.id,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      password: user.password
+    };
+
+    axios
+      .post("http://localhost:5000/users", userData, {
+        headers: {
+          Accept: "application/json",
+          "Content-type": "application/json"
+        }
+      })
+      .then(response => {
+        console.log(response);
+        console.log(response.data);
+      })
+      .catch(error => console.log(error));
     setSignedUp(true);
   };
 
@@ -120,3 +147,4 @@ const App = () => {
   return <Sucess name={firstName} lastName={lastName} />;
 };
 export default App;
+// marinaBudz1!
