@@ -1,7 +1,7 @@
 
 sign-up-app/node_modules/.cache/gh-pages/github.com!marinabudz!sign-up-app.git/
 # dependencies
-node_modules/
+node_modules
 /.pnp
 .pnp.js
 
@@ -9,7 +9,7 @@ node_modules/
 /coverage
 
 # production
-build/
+build
 
 # misc
 .DS_Store
